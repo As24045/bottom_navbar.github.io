@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <title>Bottom Reponsive NavigationBar</title>
+</head>
+<body style="background-color: black;" >
+    <header class="header" id="header">
+
+<nav class="nav container">
+    <a href="#" class="nav_logo"> <img src="https://as1.ftcdn.net/v2/jpg/00/88/43/58/1000_F_88435847_HhglbcoGP5qOX3DfudP3hN5z95eTrHqz.jpg" alt="" srcset="" class="logo_img"> </a>
+    <div class="nav_menu" id="nav-menu">
+        <ul class="nav_list">
+            <li class="nav_item">
+                <a href="#home" class="nav_link active-link">
+                    <i class='bx bx-home nav_icon'></i>
+                    <span class="nav_name">Home</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="#about" class="nav_link">
+                    <i class='bx bx-user nav_icon'></i>
+                    <span class="nav_name">About</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="#skills" class="nav_link">
+                    <i class='bx bx-book-alt nav_icon'></i>
+                    <span class="nav_name">Skills</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="#portfolio" class="nav_link">
+                    <i class='bx bx-briefcase nav_icon' ></i>
+                    <span class="nav_name">Portfolio</span>
+                </a>
+            </li>
+            <li class="nav_item">
+                <a href="#contactme" class="nav_link">
+                    <i class='bx bx-message-square-detail nav_icon'></i>
+                    <span class="nav_name">Contact me</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <img src="profile.jpg" alt="" class="nav_img">
+    <!-- <span><i class='bx bx-user nav_icon'></i></span> -->
+</nav>
+
+
+    </header>
+
+    <main>
+        <section class="container section section_height" id="home">
+            <h2 class="section_title">Home</h2>
+        </section>
+        <section class="container section section_height" id="about">
+            <h2 class="section_title">About</h2>
+        </section>
+        <section class="container section section_height" id="skills">
+            <h2 class="section_title">Skills</h2>
+        </section>
+        <section class="container section section_height" id="portfolio">
+            <h2 class="section_title">Portfolio</h2>
+        </section>
+        <section class="container section section_height" id="contactme">
+            <h2 class="section_title">Contact me</h2>
+        </section>
+    </main>
+</body>
+<script>
+    const sections = document.querySelectorAll('section[id]');
+
+    function scrollActive() {
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop -50,
+            sectionId = current.getAttribute('id');
+            
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.add('active-link');
+            }
+            else{
+                document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.remove('active-link');
+            }
+        })
+    }
+    window.addEventListener('scroll', scrollActive)
+
+
+    // ===============================change background header======================================
+
+    function scrollHeader() {
+        const nav = document.getElementById('.header');
+
+        if (this.scrollY >= 80) {
+            nav.classList.header('scroll-header');
+        }
+        else{
+            nav.classList.header('scroll-header');
+        }
+    }
+    window.addEventListener('scroll', scrollHeader);
+    function scrollTop() {
+        const scrollTop = document.getElementById('scroll-top');
+
+        if (this.scrollY >= 560) {
+            scrollTop.classList.add('show-scroll');
+        }
+        else{
+            scrollTop.classList.remove('show-scroll');
+        }
+    }
+    window.addEventListener('scroll', scrollTop);
+</script>
+</html>
